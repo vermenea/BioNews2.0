@@ -1,13 +1,12 @@
-
-import Logo from './Logo';
+import Socials from './Socials';
 
 export default function Footer() {
-  return (
-    <footer>
-      <Logo/>
-      <span>
-        Made on ☕ during exam session <b>by</b> <b className='vermenea'>Vermenea</b>
-      </span>
-    </footer>
-  )
-}
+
+      return (
+          <footer className="footer">
+              <p>Created by <a href="https://github.com/vermenea"> Vermenea</a></p>
+              <Socials/>
+          </footer>
+      )
+  }
+  

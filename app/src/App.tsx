@@ -7,11 +7,13 @@ import Footer from "./components/Footer";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
 import './sass/style.scss';
+import Blog from "./pages/Blog";
 
 
-const Layout = () => {
+const Layout = ({children}) => {
   return(<> <Navbar/>
   <Outlet/>
+  {children}
   <Footer/>
   </>
   )
@@ -19,31 +21,29 @@ const Layout = () => {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
-    children: [
-      {
-        path: "/",
-        element: <Home/>
-      },
-      {
-        path: "/post/:id",
-        element: <Single/>
-      },
-      {
-        path: "/write",
-        element: <Write/>
-      },
-    ]
+    element: <Home />, // Home will not use Layout by default
+  },
+  {
+    path: "/blog",
+    element: <Layout><Blog /></Layout>, // Blog will use Layout
+  },
+  {
+    path: "/post/:id",
+    element: <Layout><Single /></Layout>,
+  },
+  {
+    path: "/write",
+    element: <Layout><Write /></Layout>,
   },
   {
     path: "/register",
-    element: <Register/>
+    element: <Register />,
   },
   {
     path: "/login",
-    element: <Login/>
+    element: <Login />,
   },
-])
+]);
 
 function App() {
   return (

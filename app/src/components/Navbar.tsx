@@ -15,8 +15,8 @@ function Navbar() {
                 <Link className="link" to="/?cat=microbiology">Microbiology</Link>
                 <Link className="link" to="/?cat=bioinformatics">Bioinformatics</Link>
                 <Link className="link" to="/?cat=biochemistry">Biochemistry</Link>
-                <span>{currentUser?.username}</span>
-                {currentUser? <button onClick={logout}>Logout</button> : <Link className='link' to='/login'>Login</Link>}
+                <span className='user'>{currentUser?.username}</span>
+                {currentUser? <button onClick={logout} className='auth-link'>Logout</button> : <Link className='auth-link' to='/login'>Login</Link>}
                 <span className='write'>
                     <Link to="/write">Post</Link>
                 </span>
